@@ -1,0 +1,12 @@
+<div class="user-list-container">
+  <div class="list">
+    <div
+      *ngFor="let user of users"
+      [ngClass]="{ user: true, active: selectedUser === user.id }"
+      [routerLink]="['/user-details', user.id]"
+      (click)="selectedUser = user.id"
+      >
+      {{ user.name }} {{ user.voteCount }}
+    </div>
+  </div>
+</div>

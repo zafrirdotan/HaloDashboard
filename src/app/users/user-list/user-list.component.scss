@@ -1,0 +1,18 @@
+.user-list-container {
+  width: 250px;
+  font-size: 18px;
+  color: #191c3d;
+  background: white;
+  height: 100vh;
+  .list {
+    padding: 140px 0px;
+    .user {
+      padding: 5px 30px;
+      outline: none;
+    }
+    .active {
+      background: #191c3d;
+      color: white;
+    }
+  }
+}

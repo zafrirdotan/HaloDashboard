@@ -1,0 +1,65 @@
+<div class="details-container">
+  <div class="card" >
+    <div class="details">
+      <div class="user_photo"><img [src]="user.picture" /></div>
+      <div class="opening-title">{{ title }}</div>
+
+      <div class="user-name" *ngIf="selectedDetail !== 'birthDay'">
+        {{ detailToShow }}
+      </div>
+      <div class="user-name" *ngIf="selectedDetail === 'birthDay'">
+        {{ detailToShow | date }}
+      </div>
+    </div>
+    <div class="details-list">
+      <div
+        [ngClass]="{ 'icon-box': true, active: selectedDetail === 'user' }"
+        (mouseenter)="showDetail('user')"
+      >
+        <mat-icon [inline]="true">account_circle</mat-icon>
+      </div>
+      <div
+        class="icon-box"
+        [ngClass]="{ 'icon-box': true, active: selectedDetail === 'email' }"
+        (mouseenter)="showDetail('email')"
+      >
+        <mat-icon [inline]="true">email</mat-icon>
+      </div>
+      <div
+        class="icon-box"
+        [ngClass]="{ 'icon-box': true, active: selectedDetail === 'birthDay' }"
+        (mouseenter)="showDetail('birthDay')"
+      >
+        <mat-icon [inline]="true"> date_range </mat-icon>
+      </div>
+      <div
+        class="icon-box"
+        [ngClass]="{ 'icon-box': true, active: selectedDetail === 'address' }"
+        (mouseenter)="showDetail('address')"
+      >
+        <mat-icon [inline]="true"> map </mat-icon>
+      </div>
+      <div
+        class="icon-box"
+        [ngClass]="{
+          'icon-box': true,
+          active: selectedDetail === 'phoneNumber'
+        }"
+        (mouseenter)="showDetail('phoneNumber')"
+      >
+        <mat-icon [inline]="true"> local_phone </mat-icon>
+      </div>
+      <div
+        class="icon-box"
+        [ngClass]="{ 'icon-box': true, active: selectedDetail === 'password' }"
+        (mouseenter)="showDetail('password')"
+      >
+        <mat-icon [inline]="true"> lock </mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="footer" *ngIf="user">
+    <button class="vote-button" (click)="vote()">Vote</button>
+    {{ user.voteCount }}
+  </div>
+</div>
